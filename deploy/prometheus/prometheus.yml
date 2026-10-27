@@ -1,0 +1,33 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  - job_name: grafana
+    static_configs:
+      - targets: ["grafana:3000"]
+
+  # dev-сервер: windows_exporter, порт 9182 (железо, IIS, SQL Server)
+  - job_name: windows
+    scrape_interval: 15s
+    static_configs:
+      - targets: ["192.168.53.214:9182"]
+        labels:
+          env: dev
+          role: web-server
+
+  # ClinicWeb: метрики приложения (prometheus-net, путь /metrics).
+  # Подключать после закрытия /metrics сетевыми правилами, он не требует авторизации.
+  # - job_name: clinicweb
+  #   scheme: https
+  #   tls_config:
+  #     insecure_skip_verify: true   # только для самоподписанного сертификата стенда
+  #   static_configs:
+  #     - targets: ["host.docker.internal:44379"]
+  #       labels:
+  #         project: clinicweb
+  #         env: stand

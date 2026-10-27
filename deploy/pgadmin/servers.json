@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "QualityHub",
+      "Group": "Servers",
+      "Host": "postgres",
+      "Port": 5432,
+      "MaintenanceDB": "qualityhub",
+      "Username": "qualityhub",
+      "SSLMode": "prefer",
+      "Comment": "База QualityHub."
+    }
+  }
+}

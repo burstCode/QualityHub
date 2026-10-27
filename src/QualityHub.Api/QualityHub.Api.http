@@ -1,0 +1,6 @@
+@QualityHub.Api_HostAddress = http://localhost:5086
+
+GET {{QualityHub.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

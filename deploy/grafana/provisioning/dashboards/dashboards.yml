@@ -1,0 +1,12 @@
+apiVersion: 1
+
+providers:
+  - name: qualityhub
+    orgId: 1
+    folder: QualityHub
+    type: file
+    disableDeletion: false
+    allowUiUpdates: true
+    updateIntervalSeconds: 30
+    options:
+      path: /var/lib/grafana/dashboards

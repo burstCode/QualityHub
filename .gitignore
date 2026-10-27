@@ -1,0 +1,12 @@
+*.sh    text eol=lf
+*.sql   text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+
+deploy/.env
+perf/results/*
+!perf/results/.gitkeep
+node_modules/
+
+docs/
+readme.md
