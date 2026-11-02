@@ -1,0 +1,60 @@
+name: QualityHub CI and deploy
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    if: github.ref == 'refs/heads/master' || github.base_ref == 'master'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Restore
+        run: dotnet restore src/QualityHub.slnx
+      - name: Build
+        run: dotnet build src/QualityHub.slnx --configuration Release --no-restore
+      - name: Test
+        run: dotnet test src/QualityHub.slnx --configuration Release --no-build
+      - name: Validate deployment configuration
+        working-directory: deploy
+        run: docker compose --env-file .env.dist config --quiet
+      - name: Check deployment script syntax
+        run: bash -n scripts/deploy.sh
+
+  deploy:
+    needs: check
+    if: >-
+      !cancelled() &&
+      github.repository == 'burstCode/QualityHub' &&
+      (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/develop') &&
+      github.event_name != 'pull_request' &&
+      (needs.check.result == 'success' || needs.check.result == 'skipped')
+    runs-on: [self-hosted, Linux, X64, qualityhub-deploy]
+    environment: production
+    timeout-minutes: 15
+    concurrency:
+      group: qualityhub-production
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Deploy checked revision
+        env:
+          DEPLOY_SHA: ${{ github.sha }}
+          DEPLOY_BRANCH: ${{ github.ref_name }}
+          QUALITYHUB_DIR: /home/burstlimit/apps/qualityhub
+        run: bash scripts/deploy.sh "$DEPLOY_SHA" "$DEPLOY_BRANCH"

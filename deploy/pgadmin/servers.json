@@ -6,7 +6,7 @@
       "Host": "postgres",
       "Port": 5432,
       "MaintenanceDB": "qualityhub",
-      "Username": "qualityhub",
+      "Username": "sa",
       "SSLMode": "prefer",
       "Comment": "База QualityHub."
     }
