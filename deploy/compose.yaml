@@ -85,7 +85,7 @@ services:
       - ./pgadmin/servers.json:/pgadmin4/servers.json:ro
       - pgadmindata:/var/lib/pgadmin
     ports:
-      - "127.0.0.1:${PGADMIN_PORT:-5050}:80"
+      - "0.0.0.0:${PGADMIN_PORT:-5050}:80"
 
   # Профиль demo: тестовая цель, HTTP-сервер с настраиваемыми задержками и ошибками
   demo-target:
