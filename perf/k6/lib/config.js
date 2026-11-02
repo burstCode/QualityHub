@@ -82,7 +82,7 @@ export function scenarios() {
 
 // endpoints: { имя: { p95Ms, maxErrorRate? } }
 // Для каждого эндпойнта создаются пороги. Это нужно дважды: проверка качества и то, что k6
-// вообще считает по эндпойнту отдельную статистику (без порога её не будет в итоговом отчёте).
+// вообще считает по эндпойнту отдельную статистику.
 export function buildOptions(endpoints) {
   const thresholds = {
     http_req_failed: ['rate<0.05'],
@@ -99,6 +99,7 @@ export function buildOptions(endpoints) {
     tags: { project: cfg.project, env: cfg.env, version: cfg.version, testid: cfg.build },
     summaryTrendStats: ['avg', 'min', 'med', 'p(90)', 'p(95)', 'p(99)', 'max'],
     insecureSkipTLSVerify: cfg.insecureTls,
+    noCookiesReset: true,
     systemTags: ['status', 'method', 'group', 'check', 'error', 'error_code', 'scenario', 'expected_response'],
   };
 }

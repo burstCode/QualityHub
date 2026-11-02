@@ -1,6 +1,6 @@
 {
   "uid": "qh-clinicweb",
-  "title": "Веб-клиника (ClinicWeb)",
+  "title": "Клиника-Веб",
   "tags": [
     "qualityhub"
   ],
@@ -69,7 +69,7 @@
     {
       "id": 1,
       "type": "row",
-      "title": "IIS: сайт и пул приложений (данные доступны сейчас, источник: windows_exporter)",
+      "title": "IIS: сайт и пул приложений",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -528,7 +528,7 @@
     },
     {
       "type": "timeseries",
-      "title": "Ошибки: не найдено (404) и заблокировано",
+      "title": "Ошибки: не найдено и заблокировано",
       "datasource": {
         "type": "prometheus",
         "uid": "prometheus"
@@ -537,7 +537,7 @@
         {
           "refId": "A",
           "expr": "sum(rate(windows_iis_not_found_errors_total{site=\"$site\"}[5m]))",
-          "legendFormat": "не найдено (404)",
+          "legendFormat": "не найдено",
           "datasource": {
             "type": "prometheus",
             "uid": "prometheus"
@@ -756,7 +756,7 @@
     {
       "id": 14,
       "type": "row",
-      "title": "Приложение ClinicWeb: метрики процесса и API (источник подключается: /metrics, задание clinicweb)",
+      "title": "Клиника-Веб",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -767,23 +767,374 @@
       "panels": []
     },
     {
-      "type": "text",
-      "title": "Что нужно, чтобы панели ниже заполнились",
-      "options": {
-        "mode": "markdown",
-        "content": "1. Закрыть `/metrics` сетевыми правилами (он без авторизации) и раскомментировать задание `clinicweb` в `deploy/prometheus/prometheus.yml`.\n2. Метрики процесса (CPU, память, потоки, сборки мусора) отдаёт prometheus-net из коробки.\n3. Время ответа и коды ответов API появятся после `app.UseHttpMetrics()` в ClinicWeb (сейчас вызывается только `MapMetrics()`).\n4. Внутренние метрики ClinicWeb (`request_time`, `number_of_requests`) пишутся не в Prometheus, а в SQL-модуль Simplex. Чтобы они появились здесь, модуль метрик нужно переключить на Prometheus.\n5. Состояние пула соединений SqlClient: нужен сбор счётчиков `Microsoft.Data.SqlClient.EventSource` (панель в конце)."
+      "type": "stat",
+      "title": "Запросов в секунду",
+      "description": "Запросы к API (методы контроллеров) за последние 2 минуты. SignalR-хаб и /metrics не считаются.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
       },
-      "id": 15,
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(rate(http_request_duration_seconds_count{job=\"clinicweb\",endpoint!=\"\",endpoint!~\"/hubs/.*|.*path:nonfile.*\"}[2m]))",
+          "legendFormat": "",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps",
+          "decimals": 2,
+          "noValue": "нет данных",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "colorMode": "none",
+        "graphMode": "area",
+        "textMode": "value",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
+      },
+      "id": 100,
       "gridPos": {
-        "h": 6,
-        "w": 24,
+        "h": 4,
+        "w": 4,
         "x": 0,
         "y": 22
       }
     },
     {
+      "type": "stat",
+      "title": "Время ответа p95",
+      "description": "95% запросов к API завершаются быстрее этого времени (окно 5 минут).",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "histogram_quantile(0.95, sum by (le) (rate(http_request_duration_seconds_bucket{job=\"clinicweb\",endpoint!=\"\",endpoint!~\"/hubs/.*|.*path:nonfile.*\"}[5m])))",
+          "legendFormat": "",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "decimals": 2,
+          "noValue": "нет данных",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "textMode": "value",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
+      },
+      "id": 101,
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 22
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Ошибки 5xx",
+      "description": "Доля ответов с кодом 5xx среди запросов к API за 5 минут.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "100 * sum(rate(http_request_duration_seconds_count{job=\"clinicweb\",endpoint!=\"\",endpoint!~\"/hubs/.*|.*path:nonfile.*\",code=~\"5..\"}[5m])) / clamp_min(sum(rate(http_request_duration_seconds_count{job=\"clinicweb\",endpoint!=\"\",endpoint!~\"/hubs/.*|.*path:nonfile.*\"}[5m])), 1e-9)",
+          "legendFormat": "",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "decimals": 2,
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 5
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "textMode": "value",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
+      },
+      "id": 102,
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 22
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Запросов в обработке",
+      "description": "Запросы к API, которые приложение обрабатывает прямо сейчас.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(http_requests_in_progress{job=\"clinicweb\",endpoint!=\"\",endpoint!~\"/hubs/.*|.*path:nonfile.*\"})",
+          "legendFormat": "",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "colorMode": "none",
+        "graphMode": "area",
+        "textMode": "value",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
+      },
+      "id": 103,
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 12,
+        "y": 22
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Активных DbContext",
+      "description": "Созданные и ещё не освобождённые контексты EF Core. Число должно колебаться возле небольшого значения; если оно только растёт, контексты не освобождаются.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(microsoft_entityframeworkcore_microsoft_entityframeworkcore_active_dbcontexts{job=\"clinicweb\"})",
+          "legendFormat": "",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "нет данных",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 500
+              },
+              {
+                "color": "red",
+                "value": 5000
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "textMode": "value",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
+      },
+      "id": 104,
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 16,
+        "y": 22
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Исключений в секунду",
+      "description": "Исключения, выброшенные в приложении (включая обработанные), за 5 минут. Разбивка по типам ниже.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(rate(system_runtime_dotnet_exceptions{job=\"clinicweb\"}[5m]))",
+          "legendFormat": "",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 2,
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "colorMode": "none",
+        "graphMode": "area",
+        "textMode": "value",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
+      },
+      "id": 105,
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 20,
+        "y": 22
+      }
+    },
+    {
       "type": "timeseries",
-      "title": "Загрузка CPU процесса, % одного ядра",
+      "title": "Загрузка CPU процесса",
       "datasource": {
         "type": "prometheus",
         "uid": "prometheus"
@@ -830,8 +1181,9 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 28
-      }
+        "y": 26
+      },
+      "description": "100% — одно ядро занято полностью; на двух ядрах максимум 200%."
     },
     {
       "type": "timeseries",
@@ -892,8 +1244,9 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 28
-      }
+        "y": 26
+      },
+      "description": "Рабочий набор — память процесса в ОЗУ; управляемая куча — память, занятая объектами .NET."
     },
     {
       "type": "timeseries",
@@ -953,63 +1306,14 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 28
-      }
-    },
-    {
-      "type": "timeseries",
-      "title": "Сборки мусора в секунду",
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "y": 26
       },
-      "targets": [
-        {
-          "refId": "A",
-          "expr": "sum by (generation) (rate(dotnet_collection_count_total{job=\"clinicweb\"}[5m]))",
-          "legendFormat": "поколение {{generation}}",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "range": true
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "min": 0,
-          "custom": {
-            "drawStyle": "line",
-            "lineWidth": 1,
-            "fillOpacity": 12,
-            "showPoints": "never",
-            "spanNulls": true
-          }
-        },
-        "overrides": []
-      },
-      "options": {
-        "legend": {
-          "showLegend": true,
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "desc"
-        }
-      },
-      "id": 19,
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 0,
-        "y": 36
-      }
+      "description": "Резкий рост потоков или дескрипторов указывает на утечку ресурсов."
     },
     {
       "type": "timeseries",
       "title": "Время ответа API",
+      "description": "Медианное время и 95-й, 99-й процентили по запросам к API (окно 5 минут).",
       "datasource": {
         "type": "prometheus",
         "uid": "prometheus"
@@ -1017,7 +1321,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "histogram_quantile(0.50, sum by (le) (rate(http_request_duration_seconds_bucket{job=\"clinicweb\"}[5m])))",
+          "expr": "histogram_quantile(0.50, sum by (le) (rate(http_request_duration_seconds_bucket{job=\"clinicweb\",endpoint!=\"\",endpoint!~\"/hubs/.*|.*path:nonfile.*\"}[5m])))",
           "legendFormat": "p50",
           "datasource": {
             "type": "prometheus",
@@ -1027,7 +1331,7 @@
         },
         {
           "refId": "B",
-          "expr": "histogram_quantile(0.95, sum by (le) (rate(http_request_duration_seconds_bucket{job=\"clinicweb\"}[5m])))",
+          "expr": "histogram_quantile(0.95, sum by (le) (rate(http_request_duration_seconds_bucket{job=\"clinicweb\",endpoint!=\"\",endpoint!~\"/hubs/.*|.*path:nonfile.*\"}[5m])))",
           "legendFormat": "p95",
           "datasource": {
             "type": "prometheus",
@@ -1037,7 +1341,7 @@
         },
         {
           "refId": "C",
-          "expr": "histogram_quantile(0.99, sum by (le) (rate(http_request_duration_seconds_bucket{job=\"clinicweb\"}[5m])))",
+          "expr": "histogram_quantile(0.99, sum by (le) (rate(http_request_duration_seconds_bucket{job=\"clinicweb\",endpoint!=\"\",endpoint!~\"/hubs/.*|.*path:nonfile.*\"}[5m])))",
           "legendFormat": "p99",
           "datasource": {
             "type": "prometheus",
@@ -1071,17 +1375,18 @@
           "sort": "desc"
         }
       },
-      "id": 20,
+      "id": 106,
       "gridPos": {
         "h": 8,
         "w": 8,
-        "x": 8,
-        "y": 36
+        "x": 0,
+        "y": 34
       }
     },
     {
       "type": "timeseries",
       "title": "Запросы в секунду по кодам ответа",
+      "description": "Запросы к API, сгруппированные по HTTP-коду ответа.",
       "datasource": {
         "type": "prometheus",
         "uid": "prometheus"
@@ -1089,7 +1394,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "sum by (code) (rate(http_request_duration_seconds_count{job=\"clinicweb\"}[2m]))",
+          "expr": "sum by (code) (rate(http_request_duration_seconds_count{job=\"clinicweb\",endpoint!=\"\",endpoint!~\"/hubs/.*|.*path:nonfile.*\"}[2m]))",
           "legendFormat": "{{code}}",
           "datasource": {
             "type": "prometheus",
@@ -1123,17 +1428,18 @@
           "sort": "desc"
         }
       },
-      "id": 21,
+      "id": 107,
       "gridPos": {
         "h": 8,
         "w": 8,
-        "x": 16,
-        "y": 36
+        "x": 8,
+        "y": 34
       }
     },
     {
       "type": "timeseries",
-      "title": "Доля ответов 5xx, %",
+      "title": "Доля ответов 5xx",
+      "description": "Какая часть запросов к API завершилась ошибкой сервера.",
       "datasource": {
         "type": "prometheus",
         "uid": "prometheus"
@@ -1141,7 +1447,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "100 * sum(rate(http_request_duration_seconds_count{job=\"clinicweb\",code=~\"5..\"}[5m])) / sum(rate(http_request_duration_seconds_count{job=\"clinicweb\"}[5m]))",
+          "expr": "100 * sum(rate(http_request_duration_seconds_count{job=\"clinicweb\",endpoint!=\"\",endpoint!~\"/hubs/.*|.*path:nonfile.*\",code=~\"5..\"}[5m])) / clamp_min(sum(rate(http_request_duration_seconds_count{job=\"clinicweb\",endpoint!=\"\",endpoint!~\"/hubs/.*|.*path:nonfile.*\"}[5m])), 1e-9)",
           "legendFormat": "5xx",
           "datasource": {
             "type": "prometheus",
@@ -1154,32 +1460,12 @@
         "defaults": {
           "unit": "percent",
           "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 1
-              },
-              {
-                "color": "red",
-                "value": 5
-              }
-            ]
-          },
           "custom": {
             "drawStyle": "line",
             "lineWidth": 1,
             "fillOpacity": 12,
             "showPoints": "never",
-            "spanNulls": true,
-            "thresholdsStyle": {
-              "mode": "line"
-            }
+            "spanNulls": true
           }
         },
         "overrides": []
@@ -1195,17 +1481,18 @@
           "sort": "desc"
         }
       },
-      "id": 22,
+      "id": 108,
       "gridPos": {
         "h": 8,
         "w": 8,
-        "x": 0,
-        "y": 44
+        "x": 16,
+        "y": 34
       }
     },
     {
       "type": "timeseries",
-      "title": "Самые медленные методы API (p95, топ-10)",
+      "title": "Самые медленные методы API",
+      "description": "Десять методов с наибольшим временем ответа (95-й процентиль, окно 5 минут).",
       "datasource": {
         "type": "prometheus",
         "uid": "prometheus"
@@ -1213,8 +1500,8 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "topk(10, histogram_quantile(0.95, sum by (le, controller, action) (rate(http_request_duration_seconds_bucket{job=\"clinicweb\"}[5m]))))",
-          "legendFormat": "{{controller}}/{{action}}",
+          "expr": "topk(10, histogram_quantile(0.95, sum by (le, endpoint) (rate(http_request_duration_seconds_bucket{job=\"clinicweb\",endpoint!=\"\",endpoint!~\"/hubs/.*|.*path:nonfile.*\"}[5m]))))",
+          "legendFormat": "{{endpoint}}",
           "datasource": {
             "type": "prometheus",
             "uid": "prometheus"
@@ -1247,122 +1534,18 @@
           "sort": "desc"
         }
       },
-      "id": 23,
-      "gridPos": {
-        "h": 8,
-        "w": 16,
-        "x": 8,
-        "y": 44
-      }
-    },
-    {
-      "type": "timeseries",
-      "title": "Запросы в обработке",
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "targets": [
-        {
-          "refId": "A",
-          "expr": "sum(http_requests_in_progress{job=\"clinicweb\"})",
-          "legendFormat": "в обработке",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "range": true
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "min": 0,
-          "custom": {
-            "drawStyle": "line",
-            "lineWidth": 1,
-            "fillOpacity": 12,
-            "showPoints": "never",
-            "spanNulls": true
-          }
-        },
-        "overrides": []
-      },
-      "options": {
-        "legend": {
-          "showLegend": true,
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "desc"
-        }
-      },
-      "id": 24,
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 0,
-        "y": 52
-      }
-    },
-    {
-      "type": "timeseries",
-      "title": "Слой данных: время запросов к БД (p95 по сущностям)",
-      "description": "Внутренняя метрика ClinicWeb (BaseRepository). Появится после переключения модуля метрик на Prometheus.",
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "targets": [
-        {
-          "refId": "A",
-          "expr": "topk(10, histogram_quantile(0.95, sum by (le, entity_type) (rate(request_time_bucket{job=\"clinicweb\"}[5m]))))",
-          "legendFormat": "{{entity_type}}",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "range": true
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "unit": "s",
-          "min": 0,
-          "custom": {
-            "drawStyle": "line",
-            "lineWidth": 1,
-            "fillOpacity": 12,
-            "showPoints": "never",
-            "spanNulls": true
-          }
-        },
-        "overrides": []
-      },
-      "options": {
-        "legend": {
-          "showLegend": true,
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "desc"
-        }
-      },
-      "id": 25,
+      "id": 109,
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 8,
-        "y": 52
+        "x": 0,
+        "y": 42
       }
     },
     {
       "type": "timeseries",
-      "title": "Слой данных: запросы по результату",
-      "description": "Успешные и ошибочные обращения к репозиториям. Точное имя метрики проверьте после подключения.",
+      "title": "Самые нагруженные методы API",
+      "description": "Десять методов с наибольшим числом запросов в секунду.",
       "datasource": {
         "type": "prometheus",
         "uid": "prometheus"
@@ -1370,8 +1553,124 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "sum by (status) (rate(number_of_requests_total{job=\"clinicweb\"}[5m]))",
-          "legendFormat": "{{status}}",
+          "expr": "topk(10, sum by (endpoint) (rate(http_request_duration_seconds_count{job=\"clinicweb\",endpoint!=\"\",endpoint!~\"/hubs/.*|.*path:nonfile.*\"}[5m])))",
+          "legendFormat": "{{endpoint}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps",
+          "min": 0,
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 1,
+            "fillOpacity": 12,
+            "showPoints": "never",
+            "spanNulls": true
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "showLegend": true,
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "id": 110,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 42
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Активные DbContext",
+      "description": "Контексты EF Core, созданные и не освобождённые. Постоянный рост означает, что где-то не происходит освобождение ресурсов.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "microsoft_entityframeworkcore_microsoft_entityframeworkcore_active_dbcontexts{job=\"clinicweb\"}",
+          "legendFormat": "активных",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "min": 0,
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 1,
+            "fillOpacity": 12,
+            "showPoints": "never",
+            "spanNulls": true
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "showLegend": true,
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "id": 111,
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 50
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Запросы EF Core в секунду",
+      "description": "Запросы на чтение и сохранения, выполненные через EF Core.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "rate(microsoft_entityframeworkcore_microsoft_entityframeworkcore_queries{job=\"clinicweb\"}[5m])",
+          "legendFormat": "чтение",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        },
+        {
+          "refId": "B",
+          "expr": "rate(microsoft_entityframeworkcore_microsoft_entityframeworkcore_savechanges{job=\"clinicweb\"}[5m])",
+          "legendFormat": "сохранение",
           "datasource": {
             "type": "prometheus",
             "uid": "prometheus"
@@ -1404,18 +1703,18 @@
           "sort": "desc"
         }
       },
-      "id": 26,
+      "id": 112,
       "gridPos": {
         "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 60
+        "w": 8,
+        "x": 8,
+        "y": 50
       }
     },
     {
       "type": "timeseries",
-      "title": "Пул соединений SqlClient",
-      "description": "Счётчики пула (активные и свободные соединения) отдаёт EventSource Microsoft.Data.SqlClient. Их нужно подключить через EventCounterAdapter в prometheus-net; имена метрик определятся после включения.",
+      "title": "Подключения к SQL Server",
+      "description": "Пользовательские подключения по экземплярам SQL Server на сервере.",
       "datasource": {
         "type": "prometheus",
         "uid": "prometheus"
@@ -1423,8 +1722,8 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "{__name__=~\".*sqlclient.*\",job=\"clinicweb\"}",
-          "legendFormat": "{{__name__}}",
+          "expr": "windows_mssql_genstats_user_connections",
+          "legendFormat": "{{mssql_instance}}",
           "datasource": {
             "type": "prometheus",
             "uid": "prometheus"
@@ -1434,6 +1733,7 @@
       ],
       "fieldConfig": {
         "defaults": {
+          "unit": "short",
           "min": 0,
           "custom": {
             "drawStyle": "line",
@@ -1456,12 +1756,340 @@
           "sort": "desc"
         }
       },
-      "id": 27,
+      "id": 113,
       "gridPos": {
         "h": 8,
-        "w": 24,
+        "w": 8,
+        "x": 16,
+        "y": 50
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Сборки мусора в секунду",
+      "description": "Сколько раз в секунду .NET чистит память. Поколение 0 — свежие объекты, чистка частая и быстрая. Поколение 1 — промежуточное. Поколение 2 — полная сборка, самая дорогая. Сборка поколения N затрагивает и младшие, поэтому счётчик поколения 0 включает все остальные. Если частота поколения 2 растёт, приложение держит слишком много данных.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by (generation) (rate(dotnet_collection_count_total{job=\"clinicweb\"}[5m]))",
+          "legendFormat": "поколение {{generation}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ops",
+          "min": 0,
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 1,
+            "fillOpacity": 12,
+            "showPoints": "never",
+            "spanNulls": true
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "showLegend": true,
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "id": 114,
+      "gridPos": {
+        "h": 8,
+        "w": 8,
         "x": 0,
-        "y": 68
+        "y": 58
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Паузы сборщика мусора",
+      "description": "Какую долю времени приложение стояло на сборке мусора: во время паузы запросы не обрабатываются.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "100 * rate(system_runtime_dotnet_gc_pause_time{job=\"clinicweb\"}[5m])",
+          "legendFormat": "пауза GC",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "min": 0,
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 1,
+            "fillOpacity": 12,
+            "showPoints": "never",
+            "spanNulls": true
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "showLegend": true,
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "id": 115,
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 58
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Пул потоков",
+      "description": "Потоков в пуле и задач в очереди. Постоянная очередь означает, что потоков не хватает или они заняты ожиданием.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "system_runtime_dotnet_thread_pool_thread_count{job=\"clinicweb\"}",
+          "legendFormat": "потоков",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        },
+        {
+          "refId": "B",
+          "expr": "system_runtime_dotnet_thread_pool_queue_length{job=\"clinicweb\"}",
+          "legendFormat": "очередь",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "min": 0,
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 1,
+            "fillOpacity": 12,
+            "showPoints": "never",
+            "spanNulls": true
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "showLegend": true,
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "id": 116,
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 58
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Исключения по типам",
+      "description": "Сколько исключений в секунду выбрасывается и какого типа. Постоянный фон одного типа — повод проверить код.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "topk(8, sum by (error_type) (rate(system_runtime_dotnet_exceptions{job=\"clinicweb\"}[5m])))",
+          "legendFormat": "{{error_type}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ops",
+          "min": 0,
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 1,
+            "fillOpacity": 12,
+            "showPoints": "never",
+            "spanNulls": true
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "showLegend": true,
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "id": 117,
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 66
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Исходящие HTTP-запросы",
+      "description": "Запросы ClinicWeb к внешним сервисам, по адресам.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by (server_address) (rate(system_net_http_http_client_request_duration_count{job=\"clinicweb\"}[5m]))",
+          "legendFormat": "{{server_address}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps",
+          "min": 0,
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 1,
+            "fillOpacity": 12,
+            "showPoints": "never",
+            "spanNulls": true
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "showLegend": true,
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "id": 118,
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 66
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Блокировки",
+      "description": "Сколько раз в секунду потоки ждали освобождения блокировки. Рост говорит о конкуренции за общие ресурсы.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "rate(system_runtime_dotnet_monitor_lock_contentions{job=\"clinicweb\"}[5m])",
+          "legendFormat": "ожиданий",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ops",
+          "min": 0,
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 1,
+            "fillOpacity": 12,
+            "showPoints": "never",
+            "spanNulls": true
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "showLegend": true,
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "id": 119,
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 66
       }
     }
   ]

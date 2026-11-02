@@ -1,0 +1,2361 @@
+[
+ {
+  "method": "GET",
+  "path": "/api/About/GetAboutProgram",
+  "kind": "get",
+  "baselineMs": 44,
+  "kb": 8
+ },
+ {
+  "method": "POST",
+  "path": "/api/AlertLocations/GetPage",
+  "kind": "page",
+  "baselineMs": 154,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/AmbCrewProfiles/GetPage",
+  "kind": "page",
+  "baselineMs": 119,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/AmbCrewProfiles/GetDefault",
+  "kind": "get",
+  "baselineMs": 6,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/AmbCrewSpecializations/GetPage",
+  "kind": "page",
+  "baselineMs": 157,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/AmbCrewSpecializations/GetDefault",
+  "kind": "get",
+  "baselineMs": 6,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/Authorization/GetCurrentUserName",
+  "kind": "get",
+  "baselineMs": 10,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/BadHabits/GetPage",
+  "kind": "page",
+  "baselineMs": 62,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/BadHabits/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/BadSocialFactorGroups/GetPage",
+  "kind": "page",
+  "baselineMs": 110,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/BadSocialFactorGroups/GetDefault",
+  "kind": "get",
+  "baselineMs": 7,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/BadSocialFactors/GetPage",
+  "kind": "page",
+  "baselineMs": 71,
+  "kb": 2
+ },
+ {
+  "method": "GET",
+  "path": "/api/BadSocialFactors/GetDefault",
+  "kind": "get",
+  "baselineMs": 8,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Benefits/GetPage",
+  "kind": "page",
+  "baselineMs": 25,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/Bloodgroups/GetPage",
+  "kind": "page",
+  "baselineMs": 23,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Branches/GetPage",
+  "kind": "page",
+  "baselineMs": 118,
+  "kb": 18
+ },
+ {
+  "method": "GET",
+  "path": "/api/Branches/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/BranchMedInspectionMobilePlaces/GetPage",
+  "kind": "page",
+  "baselineMs": 364,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/BranchSubdivisions/GetPage",
+  "kind": "page",
+  "baselineMs": 322,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/BranchSubdivisions/GetDefault",
+  "kind": "get",
+  "baselineMs": 7,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/BudgetTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 98,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Cabinets/GetPage",
+  "kind": "page",
+  "baselineMs": 696,
+  "kb": 3
+ },
+ {
+  "method": "GET",
+  "path": "/api/Cabinets/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/CabinetLocations/GetPage",
+  "kind": "page",
+  "baselineMs": 281,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/CabinetLocations/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Citizenships/GetPage",
+  "kind": "page",
+  "baselineMs": 68,
+  "kb": 2
+ },
+ {
+  "method": "POST",
+  "path": "/api/Contracts/GetPage",
+  "kind": "page",
+  "baselineMs": 1371,
+  "kb": 9
+ },
+ {
+  "method": "GET",
+  "path": "/api/Contracts/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/Degrees/GetPage",
+  "kind": "page",
+  "baselineMs": 49,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Departments/GetPage",
+  "kind": "page",
+  "baselineMs": 535,
+  "kb": 2
+ },
+ {
+  "method": "GET",
+  "path": "/api/Departments/GetDefault",
+  "kind": "get",
+  "baselineMs": 10,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Diagnoses/GetPage",
+  "kind": "page",
+  "baselineMs": 3488,
+  "kb": 3
+ },
+ {
+  "method": "POST",
+  "path": "/api/DiagnosisKinds/GetPage",
+  "kind": "page",
+  "baselineMs": 96,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/DiagnosisTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 161,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Disabilitys/GetPage",
+  "kind": "page",
+  "baselineMs": 49,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/DiscountCardTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 42,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/Discounts/GetPage",
+  "kind": "page",
+  "baselineMs": 25,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/Discounts/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/DispensaryGroups/GetPage",
+  "kind": "page",
+  "baselineMs": 94,
+  "kb": 2
+ },
+ {
+  "method": "GET",
+  "path": "/api/DispensaryGroups/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/DispensaryStates/GetPage",
+  "kind": "page",
+  "baselineMs": 88,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/DispensaryStates/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/DoctorGroup/GetPage",
+  "kind": "page",
+  "baselineMs": 36,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/DoctorGroup/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Doctors/GetPage",
+  "kind": "page",
+  "baselineMs": 123,
+  "kb": 4
+ },
+ {
+  "method": "POST",
+  "path": "/api/DocType/GetPage",
+  "kind": "page",
+  "baselineMs": 27,
+  "kb": 2
+ },
+ {
+  "method": "GET",
+  "path": "/api/DocType/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/DocTypeKind/GetPage",
+  "kind": "page",
+  "baselineMs": 20,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/DocTypeKind/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/DocumentEDocuments/GetPage",
+  "kind": "page",
+  "baselineMs": 257,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/Documents/GetPage",
+  "kind": "page",
+  "baselineMs": 397,
+  "kb": 15
+ },
+ {
+  "method": "POST",
+  "path": "/api/DrugsResults/GetPage",
+  "kind": "page",
+  "baselineMs": 119,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/DrugsResults/GetDefault",
+  "kind": "get",
+  "baselineMs": 3,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/EasyMed/GetModuleInfo",
+  "kind": "get",
+  "baselineMs": 27,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ExternalFields/GetPage",
+  "kind": "page",
+  "baselineMs": 80,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/GRLSMedicaments/GetPage",
+  "kind": "page",
+  "baselineMs": 748,
+  "kb": 6
+ },
+ {
+  "method": "GET",
+  "path": "/api/GRLSMedicaments/GetDefault",
+  "kind": "get",
+  "baselineMs": 8,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Hazard/GetPage",
+  "kind": "page",
+  "baselineMs": 280,
+  "kb": 5
+ },
+ {
+  "method": "GET",
+  "path": "/api/Hazard/GetDefault",
+  "kind": "get",
+  "baselineMs": 10,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/HazardDoctors/GetPage",
+  "kind": "page",
+  "baselineMs": 485,
+  "kb": 2
+ },
+ {
+  "method": "GET",
+  "path": "/api/HazardDoctors/GetDefault",
+  "kind": "get",
+  "baselineMs": 8,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/HazardOrder/GetPage",
+  "kind": "page",
+  "baselineMs": 55,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/HazardOrder/GetDefault",
+  "kind": "get",
+  "baselineMs": 8,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/HazardSection/GetPage",
+  "kind": "page",
+  "baselineMs": 139,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/HazardSection/GetDefault",
+  "kind": "get",
+  "baselineMs": 10,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/HealTemplateDiagnostics/GetPage",
+  "kind": "page",
+  "baselineMs": 438,
+  "kb": 3
+ },
+ {
+  "method": "GET",
+  "path": "/api/HealTemplateDiagnostics/GetDefault",
+  "kind": "get",
+  "baselineMs": 8,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/HealTemplateDiets/GetPage",
+  "kind": "page",
+  "baselineMs": 318,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/HealTemplateDiets/GetDefault",
+  "kind": "get",
+  "baselineMs": 11,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/HealTemplateHealings/GetPage",
+  "kind": "page",
+  "baselineMs": 413,
+  "kb": 3
+ },
+ {
+  "method": "GET",
+  "path": "/api/HealTemplateHealings/GetDefault",
+  "kind": "get",
+  "baselineMs": 9,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/HealTemplateMedicaments/GetPage",
+  "kind": "page",
+  "baselineMs": 612,
+  "kb": 5
+ },
+ {
+  "method": "GET",
+  "path": "/api/HealTemplateMedicaments/GetDefault",
+  "kind": "get",
+  "baselineMs": 8,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/HealTemplates/GetPage",
+  "kind": "page",
+  "baselineMs": 397,
+  "kb": 3
+ },
+ {
+  "method": "POST",
+  "path": "/api/HtempAgeCategorys/GetPage",
+  "kind": "page",
+  "baselineMs": 69,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/PersonHospitals/GetPage",
+  "kind": "page",
+  "baselineMs": 2162,
+  "kb": 5
+ },
+ {
+  "method": "POST",
+  "path": "/api/ImmunobiologicalDrugGroups/GetPage",
+  "kind": "page",
+  "baselineMs": 52,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/ImmunobiologicalDrugGroups/GetDefault",
+  "kind": "get",
+  "baselineMs": 7,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ImmunobiologicalDrugs/GetPage",
+  "kind": "page",
+  "baselineMs": 374,
+  "kb": 5
+ },
+ {
+  "method": "GET",
+  "path": "/api/ImmunobiologicalDrugs/GetDrugGroups",
+  "kind": "get",
+  "baselineMs": 13,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/ImmunobiologicalDrugs/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/IncidentReviewProcessedTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 170,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/InspectionResults/GetPage",
+  "kind": "page",
+  "baselineMs": 78,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/InspectionResults/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Inspections/GetPage",
+  "kind": "page",
+  "baselineMs": 401,
+  "kb": 3
+ },
+ {
+  "method": "POST",
+  "path": "/api/InsuranceOrganizations/GetPage",
+  "kind": "page",
+  "baselineMs": 156,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/InsuranceOrganizations/GetDefault",
+  "kind": "get",
+  "baselineMs": 7,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/InsuredPerson/GetPage",
+  "kind": "page",
+  "baselineMs": 582,
+  "kb": 6
+ },
+ {
+  "method": "GET",
+  "path": "/api/InsuredPerson/GetDefault",
+  "kind": "get",
+  "baselineMs": 6,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/InternetRecords/GetPage",
+  "kind": "page",
+  "baselineMs": 2477,
+  "kb": 8
+ },
+ {
+  "method": "GET",
+  "path": "/api/InternetRecords/GetDefault",
+  "kind": "get",
+  "baselineMs": 12,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/InternetRecordType/GetPage",
+  "kind": "page",
+  "baselineMs": 41,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/InternetRecordType/GetDefault",
+  "kind": "get",
+  "baselineMs": 12,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/IntervalTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 130,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/IntervalTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/IPTelephone/GetDefault",
+  "kind": "get",
+  "baselineMs": 10,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/IPTelephoneProviderTypes/GetIPTelephoneProviderTypes",
+  "kind": "get",
+  "baselineMs": 6,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/License/GetEncryptedInstallationKey",
+  "kind": "get",
+  "baselineMs": 491,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/License/GetAllActiveConnections",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 15
+ },
+ {
+  "method": "GET",
+  "path": "/api/Logger/GetAllJournals",
+  "kind": "get",
+  "baselineMs": 6,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Markers/GetPage",
+  "kind": "page",
+  "baselineMs": 88,
+  "kb": 2
+ },
+ {
+  "method": "GET",
+  "path": "/api/Markers/GetDefault",
+  "kind": "get",
+  "baselineMs": 3,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MarkerScopes/GetPage",
+  "kind": "page",
+  "baselineMs": 48,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MaterialGroups/GetPage",
+  "kind": "page",
+  "baselineMs": 155,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/MaterialGroups/GetDefault",
+  "kind": "get",
+  "baselineMs": 7,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Materials/GetPage",
+  "kind": "page",
+  "baselineMs": 939,
+  "kb": 6
+ },
+ {
+  "method": "GET",
+  "path": "/api/Materials/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Measure/GetPage",
+  "kind": "page",
+  "baselineMs": 26,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/Measure/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedComissionResults/GetPage",
+  "kind": "page",
+  "baselineMs": 20,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedComissionResults/GetDefault",
+  "kind": "get",
+  "baselineMs": 3,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedComNoconclusionReasons/GetPage",
+  "kind": "page",
+  "baselineMs": 37,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedComNoconclusionReasons/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalCarePlaces/GetPage",
+  "kind": "page",
+  "baselineMs": 22,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalCarePlaces/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalComissions/GetPage",
+  "kind": "page",
+  "baselineMs": 266,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalComissions/GetDefault",
+  "kind": "get",
+  "baselineMs": 23,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedDirectionStates/GetPage",
+  "kind": "page",
+  "baselineMs": 92,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalDirectionHistories/GetPage",
+  "kind": "page",
+  "baselineMs": 2004,
+  "kb": 4
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalDirections/GetPage",
+  "kind": "page",
+  "baselineMs": 1398,
+  "kb": 7
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalDirectionTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 108,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalDirectionTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalEquipments/GetPage",
+  "kind": "page",
+  "baselineMs": 2941,
+  "kb": 2
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalEquipments/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalLaboratory/GetPage",
+  "kind": "page",
+  "baselineMs": 20,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalLaboratory/GetDefault",
+  "kind": "get",
+  "baselineMs": 7,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalLaboratoryInstance/GetPage",
+  "kind": "page",
+  "baselineMs": 48,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalLaboratoryInstance/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalLaboratoryOrders/GetPage",
+  "kind": "page",
+  "baselineMs": 1602,
+  "kb": 4
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalLaboratoryOrderState/GetPage",
+  "kind": "page",
+  "baselineMs": 89,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalRecordItemTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 39,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/HealTemplateServiceGroup/GetPage",
+  "kind": "page",
+  "baselineMs": 76,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/HealTemplateServiceGroup/GetDefault",
+  "kind": "get",
+  "baselineMs": 8,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalRecordDiagnostics/GetPage",
+  "kind": "page",
+  "baselineMs": 1203,
+  "kb": 4
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalRecordDiagnostics/GetDefault",
+  "kind": "get",
+  "baselineMs": 6,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalRecordDiets/GetPage",
+  "kind": "page",
+  "baselineMs": 1716,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalRecordDiets/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalRecordHealing/GetPage",
+  "kind": "page",
+  "baselineMs": 1070,
+  "kb": 4
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalRecordHealing/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalRecordMedicaments/GetPage",
+  "kind": "page",
+  "baselineMs": 1062,
+  "kb": 8
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalRecordMedicaments/GetSchemeFoodList",
+  "kind": "get",
+  "baselineMs": 37,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalRecordMedicaments/GetTakingTypeList",
+  "kind": "get",
+  "baselineMs": 62,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalRecordMedicaments/GetDefault",
+  "kind": "get",
+  "baselineMs": 3,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalRecordResults/GetPage",
+  "kind": "page",
+  "baselineMs": 40,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalRecordResults/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalRecords/GetPage",
+  "kind": "page",
+  "baselineMs": 5966,
+  "kb": 8
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalRecords/GetDefault",
+  "kind": "get",
+  "baselineMs": 45,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/StdDiets/GetPage",
+  "kind": "page",
+  "baselineMs": 96,
+  "kb": 2
+ },
+ {
+  "method": "GET",
+  "path": "/api/StdDiets/GetTypes",
+  "kind": "get",
+  "baselineMs": 58,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/StdDiets/GetDefault",
+  "kind": "get",
+  "baselineMs": 19,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalRecordTemplateGroups/GetPage",
+  "kind": "page",
+  "baselineMs": 65,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalRecordTemplateGroups/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalRecordTemplates/GetPage",
+  "kind": "page",
+  "baselineMs": 88,
+  "kb": 4
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalRecordTemplates/GetDefault",
+  "kind": "get",
+  "baselineMs": 12,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalRecordTemplateTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 61,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedInspDiagnosisTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 101,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedInspRecommendations/GetPage",
+  "kind": "page",
+  "baselineMs": 74,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedOrganizations/GetPage",
+  "kind": "page",
+  "baselineMs": 39,
+  "kb": 6
+ },
+ {
+  "method": "POST",
+  "path": "/api/MessengerTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 78,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/MilitaryRelations/GetPage",
+  "kind": "page",
+  "baselineMs": 44,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Mkb10/GetPage",
+  "kind": "page",
+  "baselineMs": 77,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/MobileProblemCategories/GetPage",
+  "kind": "page",
+  "baselineMs": 85,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/MobileProblemCategories/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MobileProblemStates/GetPage",
+  "kind": "page",
+  "baselineMs": 92,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/MobileProblemStates/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MobileRegistrationRequestProcessedTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 64,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MobileRegistrationRequest/GetPage",
+  "kind": "page",
+  "baselineMs": 223,
+  "kb": 6
+ },
+ {
+  "method": "POST",
+  "path": "/api/MobileRegistrationRequestSources/GetPage",
+  "kind": "page",
+  "baselineMs": 36,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MobileRegistrationStates/GetPage",
+  "kind": "page",
+  "baselineMs": 19,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MobileTaxationRequest/GetPage",
+  "kind": "page",
+  "baselineMs": 299,
+  "kb": 271
+ },
+ {
+  "method": "POST",
+  "path": "/api/MobileTaxationRequestProcessTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 73,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MobileTaxationRequestSources/GetPage",
+  "kind": "page",
+  "baselineMs": 30,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MobileTaxationRequestStates/GetPage",
+  "kind": "page",
+  "baselineMs": 41,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MRDriveOrders/GetPage",
+  "kind": "page",
+  "baselineMs": 209,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/Okpdtrs/GetPage",
+  "kind": "page",
+  "baselineMs": 297,
+  "kb": 2
+ },
+ {
+  "method": "POST",
+  "path": "/api/OmsPolicyTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 23,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Organizations/GetPage",
+  "kind": "page",
+  "baselineMs": 35,
+  "kb": 8
+ },
+ {
+  "method": "GET",
+  "path": "/api/Organizations/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/PayAccounts/GetPage",
+  "kind": "page",
+  "baselineMs": 45,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/PayCashes/GetPage",
+  "kind": "page",
+  "baselineMs": 538,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/PayCashOnlines/GetPage",
+  "kind": "page",
+  "baselineMs": 509,
+  "kb": 2
+ },
+ {
+  "method": "POST",
+  "path": "/api/PayCashOnlinesTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 14,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/PayDoctypes/GetPage",
+  "kind": "page",
+  "baselineMs": 63,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/PayDoctypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/PayDocumentsHistory/GetPage",
+  "kind": "page",
+  "baselineMs": 1694,
+  "kb": 3
+ },
+ {
+  "method": "POST",
+  "path": "/api/PayFundsFlows/GetPage",
+  "kind": "page",
+  "baselineMs": 26,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/PayOperations/GetPage",
+  "kind": "page",
+  "baselineMs": 29,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/PayPaymentTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 22,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/PayTerminals/GetPage",
+  "kind": "page",
+  "baselineMs": 414,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/PayWorkplaces/GetPage",
+  "kind": "page",
+  "baselineMs": 587,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/DisAddCauses/GetPage",
+  "kind": "page",
+  "baselineMs": 211,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/DisAddCauses/GetDefault",
+  "kind": "get",
+  "baselineMs": 12,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/DisCauses/GetPage",
+  "kind": "page",
+  "baselineMs": 34,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/DisCauses/GetDefault",
+  "kind": "get",
+  "baselineMs": 10,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/DisStatuses/GetPage",
+  "kind": "page",
+  "baselineMs": 32,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/DisStatuses/GetDefault",
+  "kind": "get",
+  "baselineMs": 9,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/HospitalDisableLNStatuses/GetPage",
+  "kind": "page",
+  "baselineMs": 47,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/HospitalDisableLNStatuses/GetDefault",
+  "kind": "get",
+  "baselineMs": 9,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/HospitalStates/GetPage",
+  "kind": "page",
+  "baselineMs": 42,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/HospitalStates/GetDefault",
+  "kind": "get",
+  "baselineMs": 10,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/HospitalTreatmentTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 41,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/HospitalTreatmentTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 11,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/HospitalPreparationStatuses/GetPage",
+  "kind": "page",
+  "baselineMs": 77,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/HospitalPreparationStatuses/GetDefault",
+  "kind": "get",
+  "baselineMs": 14,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Kinships/GetPage",
+  "kind": "page",
+  "baselineMs": 64,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/Kinships/GetDefault",
+  "kind": "get",
+  "baselineMs": 11,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/PersDocHospitals/GetPage",
+  "kind": "page",
+  "baselineMs": 1142,
+  "kb": 19
+ },
+ {
+  "method": "GET",
+  "path": "/api/PersDocHospitals/GetDefault",
+  "kind": "get",
+  "baselineMs": 10,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/RegimViolationTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 61,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/RegimViolationTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 9,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/RelativeTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 53,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/RelativeTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 9,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ScanDocuments/GetPage",
+  "kind": "page",
+  "baselineMs": 33,
+  "kb": 2
+ },
+ {
+  "method": "GET",
+  "path": "/api/ScanDocuments/GetDefault",
+  "kind": "get",
+  "baselineMs": 8,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/PersonCategorys/GetPage",
+  "kind": "page",
+  "baselineMs": 27,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/PersonCategorys/GetDefault",
+  "kind": "get",
+  "baselineMs": 7,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/PersonConditions/GetPage",
+  "kind": "page",
+  "baselineMs": 96,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/PersonConditions/GetDefault",
+  "kind": "get",
+  "baselineMs": 7,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/PersonDocTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 35,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/Persons/GetPage",
+  "kind": "page",
+  "baselineMs": 15,
+  "kb": 17
+ },
+ {
+  "method": "POST",
+  "path": "/api/PersonSocialStates/GetPage",
+  "kind": "page",
+  "baselineMs": 43,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/PersonStates/GetPage",
+  "kind": "page",
+  "baselineMs": 18,
+  "kb": 2
+ },
+ {
+  "method": "POST",
+  "path": "/api/PersonTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 27,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/PriceCalcTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 76,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/PriceCalcTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 8,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/PriceTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 24,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/PriceTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 7,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Projects/GetPage",
+  "kind": "page",
+  "baselineMs": 58,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ExpertiseCases/GetPage",
+  "kind": "page",
+  "baselineMs": 37,
+  "kb": 2
+ },
+ {
+  "method": "GET",
+  "path": "/api/ExpertiseCases/GetDefault",
+  "kind": "get",
+  "baselineMs": 9,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ExpertiseCaseTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 61,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/ExpertiseCaseTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 8,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ExpertiseSubjects/GetPage",
+  "kind": "page",
+  "baselineMs": 37,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/ExpertiseSubjects/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ExpertiseTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 37,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/ExpertiseTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 3,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/HospitalProtocolResults/GetPage",
+  "kind": "page",
+  "baselineMs": 20,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/HospitalProtocolResults/GetDefault",
+  "kind": "get",
+  "baselineMs": 3,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/HospitalProtocols/GetPage",
+  "kind": "page",
+  "baselineMs": 1984,
+  "kb": 7
+ },
+ {
+  "method": "GET",
+  "path": "/api/HospitalProtocols/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/HospitalProtocolTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 54,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/HospitalProtocolTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 3,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/LaborForecasts/GetPage",
+  "kind": "page",
+  "baselineMs": 18,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/LaborForecasts/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedComissionProtocolsAndDirections/GetPage",
+  "kind": "page",
+  "baselineMs": 956,
+  "kb": 6
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedComissionProtocols/GetPage",
+  "kind": "page",
+  "baselineMs": 1829,
+  "kb": 4
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedComissionProtocols/GetDefault",
+  "kind": "get",
+  "baselineMs": 6,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MemberTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 47,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/MemberTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ProtocolDirections/GetPage",
+  "kind": "page",
+  "baselineMs": 791,
+  "kb": 3
+ },
+ {
+  "method": "GET",
+  "path": "/api/ProtocolDirections/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ProtocolTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 18,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/ProtocolTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/SimpleProtocols/GetPage",
+  "kind": "page",
+  "baselineMs": 199,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/SimpleProtocols/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Qualifications/GetPage",
+  "kind": "page",
+  "baselineMs": 22,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ReceptionDocuments/GetPage",
+  "kind": "page",
+  "baselineMs": 666,
+  "kb": 5
+ },
+ {
+  "method": "GET",
+  "path": "/api/ReceptionDocuments/GetDefault",
+  "kind": "get",
+  "baselineMs": 6,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ReceptionRecordHistory/GetPage",
+  "kind": "page",
+  "baselineMs": 1593,
+  "kb": 3
+ },
+ {
+  "method": "GET",
+  "path": "/api/ReceptionRecordHistory/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ReceptionRecords/GetPage",
+  "kind": "page",
+  "baselineMs": 1525,
+  "kb": 10
+ },
+ {
+  "method": "POST",
+  "path": "/api/ReceptionRecordState/GetPage",
+  "kind": "page",
+  "baselineMs": 27,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/ReceptionRecordState/GetDefault",
+  "kind": "get",
+  "baselineMs": 3,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/RecordProcessResult/GetPage",
+  "kind": "page",
+  "baselineMs": 43,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/RecordProcessResult/GetDefault",
+  "kind": "get",
+  "baselineMs": 7,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/RecordRejectionReason/GetPage",
+  "kind": "page",
+  "baselineMs": 31,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/RecordRejectionReason/GetDefault",
+  "kind": "get",
+  "baselineMs": 9,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/RiskProfillnessGroups/GetPage",
+  "kind": "page",
+  "baselineMs": 28,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/RiskProfillnessGroups/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Roles/GetPage",
+  "kind": "page",
+  "baselineMs": 29,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/Roles/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/SalaryCalculationTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 332,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/SalesChannels/GetPage",
+  "kind": "page",
+  "baselineMs": 40,
+  "kb": 2
+ },
+ {
+  "method": "GET",
+  "path": "/api/SalesChannels/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/SalesChannelTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 20,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/SalesChannelTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ScheduleModels/GetPage",
+  "kind": "page",
+  "baselineMs": 25,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/ScheduleModels/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Scripts/GetPage",
+  "kind": "page",
+  "baselineMs": 15,
+  "kb": 64
+ },
+ {
+  "method": "POST",
+  "path": "/api/ScriptTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 11,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/SecObjectTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 222,
+  "kb": 29
+ },
+ {
+  "method": "GET",
+  "path": "/api/SecObjectTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 8,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/SecurityUserTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 72,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/SecurityUserTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ServiceGroup/GetPage",
+  "kind": "page",
+  "baselineMs": 50,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/ServiceGroup/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ServicePoints/GetPage",
+  "kind": "page",
+  "baselineMs": 153,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/Services/GetPage",
+  "kind": "page",
+  "baselineMs": 1256,
+  "kb": 11
+ },
+ {
+  "method": "POST",
+  "path": "/api/ServiceSets/GetPage",
+  "kind": "page",
+  "baselineMs": 133,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/ServiceSets/GetDefault",
+  "kind": "get",
+  "baselineMs": 17,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/ServiceTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 46,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/SmnnMedicaments/GetPage",
+  "kind": "page",
+  "baselineMs": 528,
+  "kb": 7
+ },
+ {
+  "method": "GET",
+  "path": "/api/SmnnMedicaments/GetDefault",
+  "kind": "get",
+  "baselineMs": 6,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Statements/GetPage",
+  "kind": "page",
+  "baselineMs": 143,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/Statements/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/StatementTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 36,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/StatementTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/StdServices/GetPage",
+  "kind": "page",
+  "baselineMs": 409,
+  "kb": 2
+ },
+ {
+  "method": "GET",
+  "path": "/api/StdServices/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/StdServiceTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 26,
+  "kb": 2
+ },
+ {
+  "method": "GET",
+  "path": "/api/StdServiceTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 6,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Storages/GetPage",
+  "kind": "page",
+  "baselineMs": 1492,
+  "kb": 4
+ },
+ {
+  "method": "GET",
+  "path": "/api/Storages/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Subdoctypes/GetPage",
+  "kind": "page",
+  "baselineMs": 235,
+  "kb": 4
+ },
+ {
+  "method": "GET",
+  "path": "/api/Subdoctypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/UserOptions/GetUserOptions",
+  "kind": "get",
+  "baselineMs": 3,
+  "kb": 8
+ },
+ {
+  "method": "GET",
+  "path": "/api/UserOptions/GetUserOptionsLastSaveDate",
+  "kind": "get",
+  "baselineMs": 10,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Users/GetPage",
+  "kind": "page",
+  "baselineMs": 786,
+  "kb": 28
+ },
+ {
+  "method": "GET",
+  "path": "/api/Users/GetDefault",
+  "kind": "get",
+  "baselineMs": 7,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/UserTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 21,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/UserTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 8,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Vaccinations/GetPage",
+  "kind": "page",
+  "baselineMs": 176,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/Vaccinations/GetDefault",
+  "kind": "get",
+  "baselineMs": 10,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/MedicalCareTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 459,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/MedicalCareTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 7,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/VisitCaseTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 209,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/VisitCaseTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/VisitPurposes/GetPage",
+  "kind": "page",
+  "baselineMs": 77,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/VisitPurposes/GetDefault",
+  "kind": "get",
+  "baselineMs": 3,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/VisitResults/GetPage",
+  "kind": "page",
+  "baselineMs": 70,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/VisitResults/GetDefault",
+  "kind": "get",
+  "baselineMs": 3,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Visits/GetPage",
+  "kind": "page",
+  "baselineMs": 1336,
+  "kb": 6
+ },
+ {
+  "method": "GET",
+  "path": "/api/Visits/GetDefault",
+  "kind": "get",
+  "baselineMs": 8,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/VisitTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 255,
+  "kb": 0
+ },
+ {
+  "method": "GET",
+  "path": "/api/VisitTypes/GetDefault",
+  "kind": "get",
+  "baselineMs": 8,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/WaitingList/GetPage",
+  "kind": "page",
+  "baselineMs": 610,
+  "kb": 4
+ },
+ {
+  "method": "GET",
+  "path": "/api/WaitingList/GetDefault",
+  "kind": "get",
+  "baselineMs": 9,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/WorkerDoctors/GetPage",
+  "kind": "page",
+  "baselineMs": 1088,
+  "kb": 26
+ },
+ {
+  "method": "GET",
+  "path": "/api/WorkerDoctors/GetDefault",
+  "kind": "get",
+  "baselineMs": 8,
+  "kb": 2
+ },
+ {
+  "method": "POST",
+  "path": "/api/WorkerPosts/GetPage",
+  "kind": "page",
+  "baselineMs": 38,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/WorkerRoles/GetPage",
+  "kind": "page",
+  "baselineMs": 18,
+  "kb": 1
+ },
+ {
+  "method": "GET",
+  "path": "/api/WorkerRoles/GetDefault",
+  "kind": "get",
+  "baselineMs": 4,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/Workers/GetPage",
+  "kind": "page",
+  "baselineMs": 21,
+  "kb": 26
+ },
+ {
+  "method": "GET",
+  "path": "/api/Workers/GetDefault",
+  "kind": "get",
+  "baselineMs": 13,
+  "kb": 1
+ },
+ {
+  "method": "POST",
+  "path": "/api/WorkTeams/GetPage",
+  "kind": "page",
+  "baselineMs": 84,
+  "kb": 2
+ },
+ {
+  "method": "GET",
+  "path": "/api/WorkTeams/GetDefault",
+  "kind": "get",
+  "baselineMs": 5,
+  "kb": 0
+ },
+ {
+  "method": "POST",
+  "path": "/api/WorkTeamTypes/GetPage",
+  "kind": "page",
+  "baselineMs": 19,
+  "kb": 0
+ }
+]

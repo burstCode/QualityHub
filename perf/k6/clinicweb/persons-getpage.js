@@ -18,6 +18,9 @@ const endpoints = {
 
 export const options = buildOptions(endpoints);
 
+// Размер страницы: 10 строк — лёгкий запрос, 200 и больше — тяжёлый (сотни килобайт в ответе)
+const pageSize = Number(__ENV.K6_PAGE_SIZE) || 10;
+
 export default function () {
   ensureLogin();
 
@@ -26,12 +29,14 @@ export default function () {
     '/api/Persons/GetPage',
     {
       orderParameters: [],
-      paginationOptions: { startIndex: 0, length: 10 },
+      paginationOptions: { startIndex: 0, length: pageSize },
       filters: { flags: { simpleFields: true } },
     },
     {},
-    // Проверяем не только статус, но и что пришёл разбираемый JSON
+    // Проверяем не только статус, но и что пришёл разбираемый JSON.
+    // Для больших страниц разбор JSON грузил бы сам k6, поэтому проверяем начало ответа.
     (r) => {
+      if (pageSize > 50) return typeof r.body === 'string' && r.body.startsWith('{"list":[');
       try { return r.json() !== null; } catch (e) { return false; }
     },
   );

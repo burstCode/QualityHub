@@ -21,13 +21,13 @@ scrape_configs:
           role: web-server
 
   # ClinicWeb: метрики приложения (prometheus-net, путь /metrics).
-  # Подключать после закрытия /metrics сетевыми правилами, он не требует авторизации.
-  # - job_name: clinicweb
-  #   scheme: https
-  #   tls_config:
-  #     insecure_skip_verify: true   # только для самоподписанного сертификата стенда
-  #   static_configs:
-  #     - targets: ["host.docker.internal:44379"]
-  #       labels:
-  #         project: clinicweb
-  #         env: stand
+  # Адреса задаются в targets/clinicweb.yml и подхватываются без перезапуска.
+  - job_name: clinicweb
+    file_sd_configs:
+      - files: ["/etc/prometheus/targets/clinicweb.yml"]
+        refresh_interval: 30s
+    metric_relabel_configs:
+      # Служебные счётчики QUIC (msquic) из .NET не нужны и только раздувают хранилище
+      - source_labels: [__name__]
+        regex: private_internaldiagnostics_.*
+        action: drop

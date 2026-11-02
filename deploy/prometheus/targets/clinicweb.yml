@@ -1,0 +1,4 @@
+- targets: ["192.168.53.214:10085"]
+  labels:
+    project: clinicweb
+    env: dev
