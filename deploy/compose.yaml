@@ -1,4 +1,4 @@
-# Стек QualityHub: PostgreSQL, Prometheus, Grafana, Adminer.
+# Стек QualityHub: PostgreSQL, Prometheus, Grafana, pgAdmin.
 # Профили: demo (тестовая цель), load (генератор нагрузки k6).
 #
 #   docker compose up -d                       основной стек
@@ -72,16 +72,20 @@ services:
       - "${GRAFANA_BIND:-0.0.0.0}:${GRAFANA_PORT:-3000}:3000"
 
   # Веб-интерфейс к PostgreSQL.
-  adminer:
-    image: adminer:6.2.0
+  pgadmin:
+    image: dpage/pgadmin4:9.18
     restart: unless-stopped
     depends_on:
       postgres:
         condition: service_healthy
     environment:
-      ADMINER_DEFAULT_SERVER: postgres
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@qualityhub.dev}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:?Задайте PGADMIN_PASSWORD в deploy/.env}
+    volumes:
+      - ./pgadmin/servers.json:/pgadmin4/servers.json:ro
+      - pgadmindata:/var/lib/pgadmin
     ports:
-      - "${ADMINER_BIND:-0.0.0.0}:${ADMINER_PORT:-5050}:8080"
+      - "0.0.0.0:${PGADMIN_PORT:-5050}:80"
 
   # Профиль demo: тестовая цель, HTTP-сервер с настраиваемыми задержками и ошибками
   demo-target:
@@ -125,4 +129,5 @@ volumes:
   pgdata:
   promdata:
   grafanadata:
+  pgadmindata:
 
